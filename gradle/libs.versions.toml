@@ -1,0 +1,69 @@
+[versions]
+agp = "8.4.0-alpha12"
+kotlin = "1.9.0"
+coreKtx = "1.10.1"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+espressoCore = "3.5.1"
+lifecycleRuntimeKtx = "2.6.1"
+activityCompose = "1.8.0"
+composeBom = "2023.08.00"
+androidx-appcompat = "1.6.1"
+mangopay = "1.0.1-alpha.1"
+materia = "1.11.0"
+android-lottie = "5.2.0"
+okhttp3 = "4.12.0"
+ktor-client = "2.3.0"
+play-services-pay = "16.4.0"
+play-services-wallet = "19.3.0"
+insert-koin = "3.3.3"
+coroutines = "1.7.3"
+
+[libraries]
+androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
+androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
+androidx-ui = { group = "androidx.compose.ui", name = "ui" }
+androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
+androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
+androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
+androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
+androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
+android-material = { group = "com.google.android.material", name = "material", version.ref = "materia" }
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat"}
+android-lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "android-lottie" }
+mangopay-android-checkout = {group = "com.mangopay.android", name = "checkout", version.ref = "mangopay"}
+okhttp3-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp3"}
+okhttp3-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp3"}
+ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor-client"}
+ktor-client-okhttp = { group = "io.ktor", name = "ktor-client-okhttp", version.ref = "ktor-client"}
+ktor-client-serialization = { group = "io.ktor", name = "ktor-client-serialization", version.ref = "ktor-client"}
+ktor-client-kotlinx-json = { group = "io.ktor", name = "ktor-serialization-kotlinx-json", version.ref = "ktor-client"}
+ktor-client-json = { group = "io.ktor", name = "ktor-client-json", version.ref = "ktor-client"}
+ktor-client-logging = { group = "io.ktor", name = "ktor-client-logging", version.ref = "ktor-client"}
+ktor-client-auth = { group = "io.ktor", name = "ktor-client-auth", version.ref = "ktor-client"}
+ktor-client-content-negotiation = { group = "io.ktor", name = "ktor-client-content-negotiation", version.ref = "ktor-client"}
+ktor-client-cio = { group = "io.ktor", name = "ktor-client-cio", version.ref = "ktor-client"}
+ktor-client-data-convertion = {group = "io.ktor", name = "ktor-server-data-conversion", version.ref = "ktor-client"}
+ktor-client-android = {group = "io.ktor", name = "ktor-client-android", version.ref = "ktor-client"}
+play-services-pay = { group = "com.google.android.gms", name = "play-services-pay", version.ref = "play-services-pay" }
+play-services-wallet = { group = "com.google.android.gms", name = "play-services-wallet", version.ref = "play-services-wallet" }
+insert-koin = { group = "io.insert-koin", name = "koin-core", version.ref = "insert-koin"}
+insert-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "insert-koin"}
+coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines"}
+coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines"}
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+[bundles]
+okhttp3 = ["okhttp3-logging", "okhttp3-okhttp"]
+ktor = ["ktor-client-core", "ktor-client-okhttp", "ktor-client-serialization", "ktor-client-kotlinx-json", "ktor-client-json", "ktor-client-logging", "ktor-client-auth", "ktor-client-content-negotiation", "ktor-client-cio", "ktor-client-data-convertion"]
+play-services-pay-and-wallet = ["play-services-pay", "play-services-wallet"]

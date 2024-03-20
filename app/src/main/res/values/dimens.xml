@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<resources>
+    <dimen name="corner5">5dp</dimen>
+    <dimen name="corner10">10dp</dimen>
+    <dimen name="corner15">15dp</dimen>
+    <dimen name="corner20">20dp</dimen>
+    <dimen name="corner25">25dp</dimen>
+    <dimen name="corner50">50dp</dimen>
+    <dimen name="corner100">100dp</dimen>
+
+    <dimen name="dp0">0dp</dimen>
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp4">4dp</dimen>
+    <dimen name="dp8">8dp</dimen>
+    <dimen name="dp16">16dp</dimen>
+    <dimen name="dp24">24dp</dimen>
+    <dimen name="dp32">32dp</dimen>
+
+    <dimen name="sp8">8sp</dimen>
+    <dimen name="sp12">12sp</dimen>
+    <dimen name="sp14">14sp</dimen>
+    <dimen name="sp16">16sp</dimen>
+    <dimen name="sp18">18sp</dimen>
+    <dimen name="sp22">22sp</dimen>
+    <dimen name="sp24">24sp</dimen>
+    <dimen name="sp28">28sp</dimen>
+    <dimen name="sp30">30sp</dimen>
+
+    <dimen name="review_card__height">130dp</dimen>
+    <dimen name="list_item_spacing">16dp</dimen>
+    <dimen name="margin_16">16dp</dimen>
+    <dimen name="list_item_spacing_half">8dp</dimen>
+    <dimen name="btn_corner_radius">20dp</dimen>
+
+
+    <dimen name="progress_indicator_height">16dp</dimen>
+    <dimen name="progress_indicator_corner_radius">15dp</dimen>
+    <dimen name="zero_layout_width">0</dimen>
+
+    <dimen name="top_label_size">7sp</dimen>
+
+</resources>
