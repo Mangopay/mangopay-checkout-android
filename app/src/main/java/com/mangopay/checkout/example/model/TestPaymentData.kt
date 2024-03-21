@@ -26,6 +26,7 @@ object TestPaymentData {
     var mgpClientId = "checkoutsquatest"
     var mgpUserId = "158091557"
     var mgpAuthorId = "158091557"
+    val nethoneMerchantId = 428242
     var cardId = "" // To be updated programmatically
     var profilingAttemptReference = "" // To be updated programmatically
 }

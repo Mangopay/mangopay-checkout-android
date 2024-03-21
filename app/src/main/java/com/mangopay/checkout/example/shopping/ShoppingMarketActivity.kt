@@ -166,9 +166,10 @@ class ShoppingMarketActivity : AppCompatActivity() {
                 }
 
                 is PaymentMethod.CARD -> {
-                    val cardPaymentResult = fetchPayin()?.toCardPayment()
-                    if (cardPaymentResult != null && cardPaymentResult.secureModeRedirectURL?.isValidUrl() == true) {
-                        return cardPaymentResult
+                    // return null
+                     val cardPaymentResult = fetchPayin()?.toCardPayment()
+                     if (cardPaymentResult != null && cardPaymentResult.secureModeRedirectURL?.isValidUrl() == true) {
+                        cardPaymentResult
                     } else null
                 }
 
