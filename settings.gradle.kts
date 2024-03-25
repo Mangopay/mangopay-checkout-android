@@ -24,7 +24,7 @@ dependencyResolutionManagement {
             }
         }
         maven {
-            url = uri("https://oss.sonatype.org/content/repositories/commangopay-1243")
+            url = uri("https://oss.sonatype.org/content/repositories/commangopay-1253")
         }
     }
 }

@@ -70,7 +70,6 @@ dependencies {
     implementation(libs.android.lottie)
     implementation(libs.bundles.ktor)
     implementation(libs.ktor.client.android)
-    implementation(libs.bundles.play.services.pay.and.wallet)
     implementation(libs.insert.koin.android)
     implementation(libs.coroutines.android)
 
