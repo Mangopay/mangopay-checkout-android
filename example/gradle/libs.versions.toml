@@ -9,7 +9,7 @@ lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.8.0"
 composeBom = "2023.08.00"
 androidx-appcompat = "1.6.1"
-mangopay = "1.0.1-alpha.1"
+mangopay = "1.0.1-alpha.2"
 materia = "1.11.0"
 android-lottie = "5.2.0"
 okhttp3 = "4.12.0"
@@ -37,7 +37,6 @@ androidx-material3 = { group = "androidx.compose.material3", name = "material3" 
 android-material = { group = "com.google.android.material", name = "material", version.ref = "materia" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "androidx-appcompat"}
 android-lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "android-lottie" }
-mangopay-android-checkout = {group = "com.mangopay.android", name = "checkout", version.ref = "mangopay"}
 okhttp3-logging = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "okhttp3"}
 okhttp3-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "okhttp3"}
 ktor-client-core = { group = "io.ktor", name = "ktor-client-core", version.ref = "ktor-client"}
@@ -57,7 +56,11 @@ insert-koin = { group = "io.insert-koin", name = "koin-core", version.ref = "ins
 insert-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "insert-koin"}
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines"}
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines"}
-
+mangopay-android-checkout = {group = "com.mangopay.android", name = "checkout", version.ref = "mangopay"}
+mangopay-android-core = {group = "com.mangopay.android", name = "core", version.ref = "mangopay"}
+mangopay-android-api = {group = "com.mangopay.android", name = "api", version.ref = "mangopay"}
+mangopay-android-payment-core = {group = "com.mangopay.android", name = "payment-core", version.ref = "mangopay"}
+mangopay-android-vault = {group = "com.mangopay.android", name = "vault", version.ref = "mangopay"}
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

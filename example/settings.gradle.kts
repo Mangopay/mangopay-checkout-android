@@ -17,14 +17,7 @@ dependencyResolutionManagement {
         google()
         mavenCentral()
         maven {
-            url = uri("https://nethone.jfrog.io/artifactory/nethonesdk-android-mangopay/")
-            credentials {
-                username = System.getenv("NETHONE_JFROG_CRED_USERNAME")
-                password = System.getenv("NETHONE_JFROG_CRED_PASSWORD")
-            }
-        }
-        maven {
-            url = uri("https://oss.sonatype.org/content/repositories/commangopay-1253")
+            url = uri("https://oss.sonatype.org/content/repositories/commangopay-1283")
         }
     }
 }

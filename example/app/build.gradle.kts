@@ -66,7 +66,6 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.android.material)
-
     implementation(libs.android.lottie)
     implementation(libs.bundles.ktor)
     implementation(libs.ktor.client.android)
@@ -74,6 +73,10 @@ dependencies {
     implementation(libs.coroutines.android)
 
     implementation(libs.mangopay.android.checkout)
+//    implementation(libs.mangopay.android.core)
+//    implementation(libs.mangopay.android.api)
+//    implementation(libs.mangopay.android.payment.core)
+//    implementation(libs.mangopay.android.vault)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
