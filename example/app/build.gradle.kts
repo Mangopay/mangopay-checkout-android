@@ -55,7 +55,6 @@ android {
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -73,10 +72,6 @@ dependencies {
     implementation(libs.coroutines.android)
 
     implementation(libs.mangopay.android.checkout)
-//    implementation(libs.mangopay.android.core)
-//    implementation(libs.mangopay.android.api)
-//    implementation(libs.mangopay.android.payment.core)
-//    implementation(libs.mangopay.android.vault)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

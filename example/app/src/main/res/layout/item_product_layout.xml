@@ -65,7 +65,7 @@
                 android:layout_marginStart="@dimen/dp16"
                 android:layout_marginEnd="@dimen/dp16"
                 android:layout_marginBottom="@dimen/dp8"
-                android:text="@string/fr_buy_now"
+                android:text="@string/buy_now"
                 app:cornerRadius="@dimen/btn_corner_radius" />
 
 

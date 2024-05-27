@@ -1,7 +1,7 @@
 package com.mangopay.checkout.example.model.response
 
 import com.mangopay.android.core.model.request.FeesCreditedDebitedFunds
-import com.mangopay.android.core.model.request.LineItemRequest
+import com.mangopay.checkout.example.model.PaymentImpl
 import com.mangopay.checkout.example.model.request.LineItem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
@@ -91,15 +91,6 @@ data class PaypalPaymentResponse(
 fun PaypalPaymentResponse.toPaymentImpl() = PaymentImpl(
     id = this.id,
     status = this.status,
-    returnURL = this.returnURL.orEmpty(),
-    redirectURL = this.redirectURL.orEmpty()
+    returnURL = this.returnURL,
+    redirectURL = this.redirectURL
 )
-
-fun LineItem.toLineItemRequest() = LineItemRequest.Builder()
-    .description(this.description)
-    .taxAmount(this.taxAmount)
-    .name(this.name)
-    .quantity(this.quantity)
-    .unitAmount(this.unitAmount)
-    .build()
-
