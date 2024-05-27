@@ -22,12 +22,12 @@ import com.mangopay.android.core.model.CardRegistration
 import com.mangopay.android.core.model.PaymentMethodOptions
 import com.mangopay.android.core.model.objectclass.CardType
 import com.mangopay.android.core.model.objectclass.Currency
+import com.mangopay.android.core.model.objectclass.Payment
 import com.mangopay.android.core.model.paymentmethods.GooglepayObject
 import com.mangopay.android.core.model.paymentmethods.PaymentMethod
 import com.mangopay.android.core.model.request.Amount
 import com.mangopay.android.core.model.request.CardOptions
 import com.mangopay.android.core.model.request.CreateCardRequest
-import com.mangopay.android.core.model.request.Payment
 import com.mangopay.android.core.model.request.PaypalOptions
 import com.mangopay.android.core.model.response.CardRegistrationResponse
 import com.mangopay.android.core.util.ResultCode
@@ -42,9 +42,8 @@ import com.mangopay.checkout.example.model.TestPaymentData
 import com.mangopay.checkout.example.model.createPayinRequest
 import com.mangopay.checkout.example.model.request.createPaypalRequest
 import com.mangopay.checkout.example.model.googlePayConfigTestData
-import com.mangopay.checkout.example.model.response.toCardPayment
+import com.mangopay.checkout.example.model.response.toPaymentImpl
 import com.mangopay.checkout.example.model.toCardResult
-import com.mangopay.checkout.example.model.response.toPaypalPayment
 import com.mangopay.checkout.example.model.toRestRequest
 import com.mangopay.checkout.example.shopping.adapter.ProductsAdapter
 import kotlinx.coroutines.async
@@ -162,13 +161,13 @@ class ShoppingMarketActivity : AppCompatActivity() {
             TestPaymentData.profilingAttemptReference = profilerAttemptReference.orEmpty()
             return when(paymentMethod){
                 is PaymentMethod.PAYPAL -> {
-                    fetchPaypal()?.toPaypalPayment()
+                    fetchPaypal()?.toPaymentImpl()
                 }
 
                 is PaymentMethod.CARD -> {
                     // return null
-                     val cardPaymentResult = fetchPayin()?.toCardPayment()
-                     if (cardPaymentResult != null && cardPaymentResult.secureModeRedirectURL?.isValidUrl() == true) {
+                     val cardPaymentResult = fetchPayin()?.toPaymentImpl()
+                     if (cardPaymentResult != null && cardPaymentResult.redirectURL()?.isValidUrl() == true) {
                         cardPaymentResult
                     } else null
                 }

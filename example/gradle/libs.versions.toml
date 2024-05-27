@@ -9,7 +9,7 @@ lifecycleRuntimeKtx = "2.6.1"
 activityCompose = "1.8.0"
 composeBom = "2023.08.00"
 androidx-appcompat = "1.6.1"
-mangopay = "1.0.1-alpha.2"
+mangopay = "1.0.5"
 materia = "1.11.0"
 android-lottie = "5.2.0"
 okhttp3 = "4.12.0"
@@ -56,11 +56,7 @@ insert-koin = { group = "io.insert-koin", name = "koin-core", version.ref = "ins
 insert-koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "insert-koin"}
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines"}
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "coroutines"}
-mangopay-android-checkout = {group = "com.mangopay.android", name = "checkout", version.ref = "mangopay"}
-mangopay-android-core = {group = "com.mangopay.android", name = "core", version.ref = "mangopay"}
-mangopay-android-api = {group = "com.mangopay.android", name = "api", version.ref = "mangopay"}
-mangopay-android-payment-core = {group = "com.mangopay.android", name = "payment-core", version.ref = "mangopay"}
-mangopay-android-vault = {group = "com.mangopay.android", name = "vault", version.ref = "mangopay"}
+mangopay-android-checkout = {group = "com.mangopay.android", name = "checkout-sdk", version.ref = "mangopay"}
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }

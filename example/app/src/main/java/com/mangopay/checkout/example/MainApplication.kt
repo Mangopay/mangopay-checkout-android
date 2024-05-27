@@ -18,7 +18,7 @@ class MainApplication: Application() {
         MangopaySdk.initialize(
             context = this,
             clientId = TestPaymentData.mgpClientId,
-            profilingMerchantId = TestPaymentData.nethoneMerchantId,
+            //profilingMerchantId = TestPaymentData.nethoneMerchantId,
             environment = Environment.SANDBOX,
             logLevel = LogLevel.Basic
         )
