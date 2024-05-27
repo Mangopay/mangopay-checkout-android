@@ -1,4 +1,4 @@
-package com.mangopay.checkout.example.model
+package com.mangopay.checkout.example.model.response
 
 import com.mangopay.android.core.model.objectclass.Payment
 
