@@ -1,17 +1,9 @@
 package com.mangopay.checkout.example.model.response
 
-import com.mangopay.android.core.model.objectclass.Currency
-import com.mangopay.android.core.model.request.AddressRequest
-import com.mangopay.android.core.model.request.BillingRequest
 import com.mangopay.android.core.model.request.BillingShipping
 import com.mangopay.android.core.model.request.BrowserInfo
-import com.mangopay.android.core.model.request.BrowserInfoRequest
-import com.mangopay.android.core.model.request.CardPayment
 import com.mangopay.android.core.model.request.FeesCreditedDebitedFunds
-import com.mangopay.android.core.model.request.FeesRequest
-import com.mangopay.android.core.model.request.FundsRequest
-import com.mangopay.android.core.model.request.SecurityInfoRequest
-import com.mangopay.android.core.model.request.ShippingRequest
+import com.mangopay.checkout.example.model.PaymentImpl
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -123,99 +115,9 @@ data class SecurityInfo(
     val aVSResult: String?
 )
 
-fun PayInPaymentResponse.toCardPayment(): CardPayment {
-    return CardPayment.Builder()
-        .id(this.id)
-        .tag(this.tag)
-        .creationDate(this.creationDate)
-        .authorId(this.authorId)
-        .debitedFunds(
-            FundsRequest.Builder()
-                .amount(this.debitedFunds?.amount)
-                .currency(Currency.get(this.debitedFunds?.currency))
-                .build()
-        )
-        .creditedFunds(
-            FundsRequest.Builder()
-                .amount(this.creditedFunds?.amount)
-                .currency(Currency.get(this.creditedFunds?.currency))
-                .build()
-        )
-        .fees(
-            FeesRequest.Builder()
-                .amount(this.fees?.amount)
-                .currency(Currency.get(this.fees?.currency))
-                .build()
-        )
-        .status(this.status)
-        .resultCode(this.resultCode)
-        .resultMessage(this.resultMessage)
-        .executionDate(this.executionDate)
-        .type(this.type)
-        .nature(this.nature)
-        .creditedUserId(this.creditedUserId)
-        .creditedWalletId(this.creditedWalletId)
-        .debitedWalletId(this.debitedWalletId)
-        .paymentType(this.paymentType)
-        .executionType(this.executionType)
-        .statementDescriptor(this.statementDescriptor)
-        .culture(this.culture)
-        .secureMode(this.secureMode)
-        .cardId(this.cardId)
-        .secureModeReturnURL(this.secureModeReturnURL)
-        .secureModeRedirectURL(this.secureModeRedirectURL)
-        .secureModeNeeded(this.secureModeNeeded)
-        .securityInfoRequest(
-            SecurityInfoRequest.Builder()
-                .aVSResult(this.securityInfo?.aVSResult.orEmpty())
-                .build()
-        )
-        .browserInfo(
-            BrowserInfoRequest.Builder()
-                .acceptHeader(this.browserInfo?.acceptHeader)
-                .colorDepth(this.browserInfo?.colorDepth)
-                .javaEnabled(this.browserInfo?.javaEnabled)
-                .javascriptEnabled(this.browserInfo?.javascriptEnabled)
-                .language(this.browserInfo?.language)
-                .screenHeight(this.browserInfo?.screenHeight)
-                .screenWidth(this.browserInfo?.screenWidth)
-                .timeZoneOffset(this.browserInfo?.timeZoneOffset)
-                .userAgent(this.browserInfo?.userAgent)
-                .build()
-        )
-        .ipAddress(this.ipAddress)
-        .billingRequest(
-            BillingRequest.Builder()
-                .firstName(this.billing?.firstName)
-                .lastName(this.billing?.lastName)
-                .address(
-                    AddressRequest.Builder()
-                        .addressLine1(this.billing?.address?.addressLine1)
-                        .addressLine2(this.billing?.address?.addressLine2)
-                        .city(this.billing?.address?.city)
-                        .country(this.billing?.address?.country)
-                        .postalCode(this.billing?.address?.postalCode)
-                        .region(this.billing?.address?.region)
-                        .build()
-                ).build()
-        )
-        .shippingRequest(
-            ShippingRequest.Builder()
-                .firstName(this.shipping?.firstName)
-                .lastName(this.shipping?.lastName)
-                .address(
-                    AddressRequest.Builder()
-                        .addressLine1(this.shipping?.address?.addressLine1)
-                        .addressLine2(this.shipping?.address?.addressLine2)
-                        .city(this.shipping?.address?.city)
-                        .country(this.shipping?.address?.country)
-                        .postalCode(this.shipping?.address?.postalCode)
-                        .region(this.shipping?.address?.region)
-                        .build()
-                ).build()
-        )
-        .requested3DSVersion(this.requested3DSVersion)
-        .applied3DSVersion(this.applied3DSVersion)
-        .recurringPayinRegistrationId(this.recurringPayInRegistrationId)
-        .build()
-}
+fun PayInPaymentResponse.toPaymentImpl() = PaymentImpl(
+    id = this.id,
+    status = this.status,
+    returnURL = this.secureModeReturnURL,
+    redirectURL = this.secureModeRedirectURL
+)
