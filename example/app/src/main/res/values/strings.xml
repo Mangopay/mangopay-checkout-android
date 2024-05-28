@@ -1,11 +1,11 @@
 <resources>
     <string name="app_name">Checkout</string>
-    <string name="shufitness">ShuFitness</string>
+    <string name="shufitness">Mangopay Checkout Example</string>
     <string name="edit_input_error">Input error</string>
     <string name="pay_now">Pay Now</string>
-    <string name="shufitness_checkout">ShuFitness Checkout</string>
-    <string name="shufitness_store">ShuFitness Store</string>
-    <string name="thank_you_continue_shopping">Thank you for shopping with ShuFitness, you can continue shopping</string>
+    <string name="shufitness_checkout">Mangopay Checkout Example</string>
+    <string name="shufitness_store">Mangopay Checkout Example</string>
+    <string name="thank_you_continue_shopping">Thank you for shopping with Mangopay, you can continue shopping</string>
     <string name="continue_shopping">Continue shopping</string>
     <string name="buy_now">Buy</string>
     <string name="card_information">Card Information</string>
