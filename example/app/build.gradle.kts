@@ -10,6 +10,10 @@ android {
     namespace = "com.mangopay.checkout.example"
     compileSdk = 34
 
+    buildFeatures {
+        buildConfig = true
+    }
+
     defaultConfig {
         applicationId = "com.mangopay.checkout.example"
         minSdk = 24
@@ -21,6 +25,11 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "CLIENT_ID", "\"" + properties["CLIENT_ID"] + "\"")
+        buildConfigField("String", "EXAMPLE_BACKEND_URL", "\"" + properties["EXAMPLE_BACKEND_URL"] + "\"")
+        buildConfigField("String", "FF_PROFILLING_MERCHANT_ID", "\"" + properties["FF_PROFILLING_MERCHANT_ID"] + "\"")
+
     }
 
     buildTypes {

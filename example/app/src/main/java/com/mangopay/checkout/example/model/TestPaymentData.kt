@@ -1,6 +1,7 @@
 package com.mangopay.checkout.example.model
 
 import com.google.android.gms.wallet.button.ButtonConstants
+import com.mangopay.android.core.BuildConfig
 import com.mangopay.android.core.model.objectclass.Currency
 import com.mangopay.android.core.model.paymentmethods.CardParameters
 import com.mangopay.android.core.model.paymentmethods.GooglepayButtonOptions
@@ -21,12 +22,8 @@ object TestPaymentData {
     // Payline info
     // 4970107111111119
     // 4970105181818183
-    var mgpWalletId = "159834019"
-    var mgpPassphrase = "7fOfvt3ozv6vkAp1Pahq56hRRXYqJqNXQ4D58v5QCwTocCVWWC"
-    var mgpClientId = "checkoutsquatest"
-    var mgpUserId = "158091557"
-    var mgpAuthorId = "158091557"
-    val nethoneMerchantId = 428242
+    var mgpClientId = BuildConfig.CLIENT_ID
+    val nethoneMerchantId = BuildConfig.FF_PROFILLING_MERCHANT_ID
     var cardId = "" // To be updated programmatically
     var profilingAttemptReference = "" // To be updated programmatically
 }
