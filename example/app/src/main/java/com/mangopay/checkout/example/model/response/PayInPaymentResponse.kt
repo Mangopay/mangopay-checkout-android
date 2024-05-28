@@ -1,19 +1,9 @@
 package com.mangopay.checkout.example.model.response
 
-import com.mangopay.android.core.card.Card
-import com.mangopay.android.core.model.objectclass.Currency
-import com.mangopay.android.core.model.objectclass.Payment
-import com.mangopay.android.core.model.request.AddressRequest
-import com.mangopay.android.core.model.request.BillingRequest
 import com.mangopay.android.core.model.request.BillingShipping
 import com.mangopay.android.core.model.request.BrowserInfo
-import com.mangopay.android.core.model.request.BrowserInfoRequest
-import com.mangopay.android.core.model.request.CardOptions
 import com.mangopay.android.core.model.request.FeesCreditedDebitedFunds
-import com.mangopay.android.core.model.request.FeesRequest
-import com.mangopay.android.core.model.request.FundsRequest
-import com.mangopay.android.core.model.request.SecurityInfoRequest
-import com.mangopay.android.core.model.request.ShippingRequest
+import com.mangopay.checkout.example.model.PaymentImpl
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -131,4 +121,3 @@ fun PayInPaymentResponse.toPaymentImpl() = PaymentImpl(
     returnURL = this.secureModeReturnURL,
     redirectURL = this.secureModeRedirectURL
 )
-

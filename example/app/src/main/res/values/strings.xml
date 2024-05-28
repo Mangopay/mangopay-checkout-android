@@ -1,66 +1,15 @@
 <resources>
     <string name="app_name">Checkout</string>
     <string name="shufitness">ShuFitness</string>
-    <string name="shopping_experience">Shopping Experience (Fr)</string>
-    <string name="tokenize_card">Tokenize Card</string>
-    <string name="tokenize_card_payline">Tokenize Card (Payline)</string>
-    <string name="tokenize_card_whenthen">Tokenize Card (WhenThen)</string>
-    <string name="authorise_payment">Authorise Payment</string>
-    <string name="get_payment_whenthen">Get Payment (WhenThen)</string>
-    <string name="create_customer_whenthen">Create Customer (WhenThen)</string>
-    <string name="list_customer_cards">List Customer Cards</string>
-    <string name="headless">Headless</string>
-    <string name="element">Element</string>
-    <string name="drop_in">Drop In</string>
-    <string name="edit_input_field_error">There is error with the input field</string>
     <string name="edit_input_error">Input error</string>
-    <string name="mu_kaadi">Choose Card</string>
-    <string name="pa_re">Clear</string>
-    <string name="cvv">CVV</string>
     <string name="pay_now">Pay Now</string>
-    <string name="other_payment_option">Other Payment Option</string>
-
-    <string name="start_intent">Start Intent</string>
-    <string name="update_intent">Update Intent</string>
-    <string name="complete_intent">Complete Intent</string>
-    <string name="get_intent">Get Intent</string>
-    <string name="optimise">Optimise Intent</string>
     <string name="shufitness_checkout">ShuFitness Checkout</string>
     <string name="shufitness_store">ShuFitness Store</string>
     <string name="thank_you_continue_shopping">Thank you for shopping with ShuFitness, you can continue shopping</string>
     <string name="continue_shopping">Continue shopping</string>
-
-    <!--    French-->
-    <string name="fr_buy_now">Acheter</string>
-    <string name="fr_shufitness_store">Boutique ShuFitness</string>
-    <string name="fr_shufitness_checkout"> Paiement ShuFitness</string>
-    <string name="fr_card_information">Informations sur la carte</string>
-    <string name="fr_choose_card">Choisissez la carte</string>
-    <string name="fr_clear">Dégager</string>
-    <string name="fr_card_number">Numéro de carte</string>
-    <string name="fr_input_field_error">Il y a une erreur avec le champ de saisie</string>
-    <string name="fr_card_name">Nom de la carte</string>
-    <string name="fr_mmyy">MM/AA</string>
-    <string name="fr_input_error">Erreur d\'entrée</string>
-    <string name="fr_country">Pays</string>
-    <string name="fr_zip_postal_code">Zip / Code postal</string>
-    <string name="fr_continue_shopping">Continuer vos achats</string>
-    <string name="fr_thank_you_continue_shopping">Merci d\'avoir acheté avec ShuFitness, vous pouvez continuer vos achats</string>
-    <string name="fr_or_pay_with">ou payer avec</string>
-    <string name="fr_pay_now">Payez maintenant</string>
-    <string name="fr_save_payment_details_for_future_use">Enregistrer les détails de paiement pour une utilisation future</string>
-    <string name="fr_billing_address_is_same_shipping">L\'adresse de facturation est la même que celle d\'expédition</string>
-    <string name="checkout_sdk_config">Checkout SDK Configuration</string>
-    <string name="create_payin">Create PayIn</string>
-    <string name="view_payin">View PayIn</string>
-    <string name="list_user_cards">List User Cards</string>
-    <string name="create_card_registrations">Create Card Registrations</string>
-    <string name="create_payment_sheet">Create Payment Sheet</string>
-    <string name="handle_3ds">Handle Threeds</string>
-    <string name="payment_form_with_toks">Payment Form with Tokenization</string>
-
-    <string-array name="available_countries">
-        <item>Nigeria</item>
-        <item>Ghana</item>
-    </string-array>
+    <string name="buy_now">Buy</string>
+    <string name="card_information">Card Information</string>
+    <string name="input_field_error">Input field error</string>
+    <string name="mmyy">MM/YY</string>
+    <string name="input_error">Input Error</string>
 </resources>
