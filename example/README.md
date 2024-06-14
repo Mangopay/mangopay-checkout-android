@@ -33,7 +33,7 @@ To facilitate end-to-end testing of your integration, we offer a pre-configured 
 1. Clone the [mangopay-checkout-android](https://github.com/Mangopay/mangopay-checkout-android)
 2. Open cloned */example in Android Studio       
        ![open-example.png](..%2Fimages%2Fopen-example.png)
-3. Open `example/gradle.properties` file and populate the fields with the following
+3. Open `.../model/Constants.kt` file and populate the fields with the following
 ```
 # Set this to your Mangopay clientId
 CLIENT_ID=sdk-unit-tests
