@@ -2,7 +2,6 @@ package com.mangopay.checkout.example.model.response
 
 import com.mangopay.android.core.model.request.FeesCreditedDebitedFunds
 import com.mangopay.checkout.example.model.PaymentImpl
-import com.mangopay.checkout.example.model.request.LineItem
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
@@ -86,6 +85,24 @@ data class PaypalPaymentResponse(
 
     @SerialName("LineItems")
     val lineItems: List<LineItem>
+)
+
+@Serializable
+data class LineItem(
+    @SerialName("Description")
+    val description: String,
+
+    @SerialName("TaxAmount")
+    val taxAmount: Int,
+
+    @SerialName("Name")
+    val name: String,
+
+    @SerialName("Quantity")
+    val quantity: Int,
+
+    @SerialName("UnitAmount")
+    val unitAmount: Int,
 )
 
 fun PaypalPaymentResponse.toPaymentImpl() = PaymentImpl(

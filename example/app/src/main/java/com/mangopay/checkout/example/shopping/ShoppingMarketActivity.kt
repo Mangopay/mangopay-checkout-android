@@ -59,6 +59,8 @@ class ShoppingMarketActivity : AppCompatActivity() {
     private var demoResult = "Nothing yet!"
     private val ktorAPI: KtorAPI by inject()
 
+    private val walletId = "159834019"
+    private val userId = "157868268"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -179,7 +181,7 @@ class ShoppingMarketActivity : AppCompatActivity() {
 
         override suspend fun onCreateCardRegistration(card: Card): CardRegistration {
             val createCardRequest = CreateCardRequest.Builder()
-                .userId(TestPaymentData.mgpUserId)
+                .userId(userId)
                 .cardType(CardType.CB_VISA_MASTERCARD)
                 .currency(Currency.EUR)
                 .build()
@@ -187,7 +189,7 @@ class ShoppingMarketActivity : AppCompatActivity() {
             val cardRegistrationResult = initCreateCardRegistrations(createCardRequest)?.toCardResult()
             return CardRegistration.Builder()
                 .id(cardRegistrationResult?.id.orEmpty())
-                .userId(cardRegistrationResult?.userId ?: TestPaymentData.mgpUserId)
+                .userId(cardRegistrationResult?.userId.orEmpty())
                 .accessKey(cardRegistrationResult?.accessKey.orEmpty())
                 .preRegistrationData(cardRegistrationResult?.preRegistrationData.orEmpty())
                 .cardRegistrationURL(cardRegistrationResult?.cardRegistrationURL.orEmpty())
@@ -210,8 +212,6 @@ class ShoppingMarketActivity : AppCompatActivity() {
         return try {
             lifecycleScope.async {
                 ktorAPI.createPaypal(
-                    passphrase = TestPaymentData.mgpPassphrase,
-                    clientId = TestPaymentData.mgpClientId,
                     request = createPaypalRequest()
                 )
             }.await()
@@ -225,9 +225,7 @@ class ShoppingMarketActivity : AppCompatActivity() {
         return try {
             lifecycleScope.async {
                 ktorAPI.createPayin(
-                    passphrase = TestPaymentData.mgpPassphrase,
-                    clientId =  TestPaymentData.mgpClientId,
-                    request = createPayinRequest()
+                    request = createPayinRequest(TestPaymentData.cardId)
                 )
             }.await()
         }catch (e:Exception){
@@ -263,8 +261,6 @@ class ShoppingMarketActivity : AppCompatActivity() {
         return try {
             lifecycleScope.async {
                 ktorAPI.createCardRegistrations(
-                    passphrase = TestPaymentData.mgpPassphrase,
-                    clientId = TestPaymentData.mgpClientId,
                     request = request.toRestRequest()
                 )
             }.await()
