@@ -2,6 +2,7 @@ package com.mangopay.checkout.example
 
 import android.app.Application
 import com.mangopay.android.core.MangopaySdk
+import com.mangopay.android.core.model.objectclass.TenantId
 import com.mangopay.android.core.util.Environment
 import com.mangopay.android.core.util.LogLevel
 import com.mangopay.checkout.example.di.demoAppModule
@@ -17,6 +18,7 @@ class MainApplication: Application() {
 
         MangopaySdk.initialize(
             context = this,
+            tenantId = TenantId.EU,
             clientId = Constants.CLIENT_ID,
             environment = Environment.SANDBOX,
             logLevel = LogLevel.Basic
