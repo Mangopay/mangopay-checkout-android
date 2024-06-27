@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
+import com.airbnb.lottie.LottieAnimationView
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.button.MaterialButton
 import com.mangopay.android.checkout.core.MangopayCheckoutSdk
@@ -57,6 +58,7 @@ class ShoppingMarketActivity : AppCompatActivity() {
     private lateinit var productsAdapter: ProductsAdapter
     private lateinit var resultTextView: TextView
     private var demoResult = "Nothing yet!"
+    private lateinit var animView: LottieAnimationView
     private val ktorAPI: KtorAPI by inject()
 
     private val walletId = "159834019"
@@ -69,37 +71,37 @@ class ShoppingMarketActivity : AppCompatActivity() {
         setupSuccessBottomDialog()
 
         productsAdapter = ProductsAdapter(currency = Currency.EUR) { product ->
-                val cardOptions = CardOptions.Builder()
-                    .supportedCardSchemes(
-                        listOf(
-                            CardScheme.Maestro,
-                            CardScheme.MasterCard,
-                            CardScheme.Visa,
-                            )
-                    ).build()
+            val cardOptions = CardOptions.Builder()
+                .supportedCardSchemes(
+                    listOf(
+                        CardScheme.Maestro,
+                        CardScheme.MasterCard,
+                        CardScheme.Visa,
+                    )
+                ).build()
 
-                val paymentMethodOptions = PaymentMethodOptions.Builder()
-                    .cardOptions(cardOptions)
-                    .googlePayOptions(
-                        googlePayConfigTestData()
-                    )
-                    .paypalOptions(
-                        PaypalOptions.Builder()
-                            .build()
-                    )
-                    .amount(
-                        Amount.Builder()
-                            .value(200.00)
-                            .currency(Currency.EUR)
-                            .build()
-                    )
-                    .build()
-
-                MangopayCheckoutSdk.create(
-                    mContext = this,
-                    paymentMethodOptions = paymentMethodOptions,
-                    listener = paymentSheetCallbacks()
+            val paymentMethodOptions = PaymentMethodOptions.Builder()
+                .cardOptions(cardOptions)
+                .googlePayOptions(
+                    googlePayConfigTestData()
                 )
+                .paypalOptions(
+                    PaypalOptions.Builder()
+                        .build()
+                )
+                .amount(
+                    Amount.Builder()
+                        .value(200.00)
+                        .currency(Currency.EUR)
+                        .build()
+                )
+                .build()
+
+            MangopayCheckoutSdk.create(
+                mContext = this,
+                paymentMethodOptions = paymentMethodOptions,
+                listener = paymentSheetCallbacks()
+            )
         }
 
         binding.recyclerView.apply {
@@ -111,7 +113,10 @@ class ShoppingMarketActivity : AppCompatActivity() {
 
 
     private fun paymentSheetCallbacks() = object : Mangopay.PaymentSheetResultListener {
-        override fun onTokenizationCompleted(paymentMethod: PaymentMethod?, profilerAttemptReference: String?) {
+        override fun onTokenizationCompleted(
+            paymentMethod: PaymentMethod?,
+            profilerAttemptReference: String?
+        ) {
             var resultStatus = "PaymentSheetResult.TokenizationCompleted()".addLines()
 
             when (paymentMethod) {
@@ -158,18 +163,44 @@ class ShoppingMarketActivity : AppCompatActivity() {
             Log.v(TAG, paymentMethod.toString())
         }
 
-        override suspend fun onCreatePayment(paymentMethod: PaymentMethod,
-                                             profilerAttemptReference: String?): Payment? {
+        override suspend fun onCreatePayment(
+            paymentMethod: PaymentMethod,
+            profilerAttemptReference: String?
+        ): Payment? {
             TestPaymentData.profilingAttemptReference = profilerAttemptReference.orEmpty()
-            return when(paymentMethod){
+            when (paymentMethod) {
                 is PaymentMethod.PAYPAL -> {
-                    fetchPaypal()?.toPaymentImpl()
+                    return fetchPaypal()?.toPaymentImpl()
                 }
 
                 is PaymentMethod.CARD -> {
                     // return null
-                     val cardPaymentResult = fetchPayin()?.toPaymentImpl()
-                     if (cardPaymentResult != null && cardPaymentResult.redirectURL()?.isValidUrl() == true) {
+                    val result = fetchPayin()
+                    if (result?.status == "FAILED") {
+                        resultTextView.text = result.resultMessage
+                        animView.setAnimation(R.raw.anim_payment_failed)
+                        MangopayCheckoutSdk.tearDown()
+                        paymentSuccessBottomSheetDialog.show()
+                        demoResult = result.toString()
+                        Log.v(TAG, result.toString())
+                        return null
+                    }
+                    if (result?.status == "SUCCEEDED") {
+                        var resultStatus = "Payment Completed".addLines()
+                        resultStatus += result.id.addLines()
+                        resultStatus += result.resultCode?.addLines()
+                        demoResult = resultStatus
+                        resultTextView.text = resultStatus
+                        animView.setAnimation(R.raw.anim_payment_success)
+                        MangopayCheckoutSdk.tearDown()
+                        paymentSuccessBottomSheetDialog.show()
+                        Log.v(TAG, resultStatus)
+                        return null
+                    }
+
+                    val cardPaymentResult = result?.toPaymentImpl()
+                    return if (cardPaymentResult != null
+                        && cardPaymentResult.redirectURL()?.isValidUrl() == true) {
                         cardPaymentResult
                     } else null
                 }
@@ -186,7 +217,8 @@ class ShoppingMarketActivity : AppCompatActivity() {
                 .currency(Currency.EUR)
                 .build()
 
-            val cardRegistrationResult = initCreateCardRegistrations(createCardRequest)?.toCardResult()
+            val cardRegistrationResult =
+                initCreateCardRegistrations(createCardRequest)?.toCardResult()
             return CardRegistration.Builder()
                 .id(cardRegistrationResult?.id.orEmpty())
                 .userId(cardRegistrationResult?.userId.orEmpty())
@@ -215,7 +247,7 @@ class ShoppingMarketActivity : AppCompatActivity() {
                     request = createPaypalRequest()
                 )
             }.await()
-        }catch (e:Exception){
+        } catch (e: Exception) {
             Log.v(TAG, e.message.orEmpty())
             return null
         }
@@ -228,7 +260,7 @@ class ShoppingMarketActivity : AppCompatActivity() {
                     request = createPayinRequest(TestPaymentData.cardId)
                 )
             }.await()
-        }catch (e:Exception){
+        } catch (e: Exception) {
             Log.v(TAG, e.message.orEmpty())
             return null
         }
@@ -249,6 +281,7 @@ class ShoppingMarketActivity : AppCompatActivity() {
             startActivity(intent)
         }
         resultTextView = sheetView.findViewById(R.id.txt_result_preview)
+        animView = sheetView.findViewById(R.id.animation_view)
         sheetView.findViewById<ImageView>(R.id.img_copy_result).setOnClickListener {
             val clipboard = ContextCompat.getSystemService(this, ClipboardManager::class.java)
             clipboard?.setPrimaryClip(ClipData.newPlainText("checkout_demo_result", demoResult))
@@ -264,13 +297,13 @@ class ShoppingMarketActivity : AppCompatActivity() {
                     request = request.toRestRequest()
                 )
             }.await()
-        }catch (e:Exception){
+        } catch (e: Exception) {
             Log.v(TAG, e.message.orEmpty())
             return null
         }
     }
 
     private fun String.addLines(): String {
-        return this+"\n\n"
+        return this + "\n\n"
     }
 }
