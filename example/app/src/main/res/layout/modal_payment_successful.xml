@@ -9,7 +9,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animationView"
+        android:id="@+id/animation_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         app:lottie_rawRes="@raw/anim_payment_success"
