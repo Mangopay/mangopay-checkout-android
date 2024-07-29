@@ -79,7 +79,6 @@ dependencies {
     implementation(libs.ktor.client.android)
     implementation(libs.insert.koin.android)
     implementation(libs.coroutines.android)
-
     implementation(libs.mangopay.android.checkout)
 
     testImplementation(libs.junit)
