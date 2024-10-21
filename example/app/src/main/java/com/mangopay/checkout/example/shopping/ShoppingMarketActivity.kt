@@ -76,6 +76,7 @@ class ShoppingMarketActivity : AppCompatActivity() {
                     listOf(
                         CardScheme.Maestro,
                         CardScheme.MasterCard,
+                        CardScheme.CB,
                         CardScheme.Visa,
                     )
                 ).build()

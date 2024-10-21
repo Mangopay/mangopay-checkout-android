@@ -30,7 +30,7 @@ class KtorAPI(private val client: HttpClient) {
     }
     suspend fun createCardRegistrations(request: CreateCardRegRestRequest): CardRegistrationResponse {
         val response = client.post {
-            url("${Constants.EXAMPLE_BACKEND_URL}/card-registration")
+            url("${Constants.EXAMPLE_BACKEND_URL}/create-card-registration")
             setBody(request)
         }
         return response.body()
