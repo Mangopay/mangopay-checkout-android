@@ -1,7 +1,19 @@
 
 # 🔀 &nbsp; Changelog
 
-## 1.1.0 (2024-06-21)
+## 1.0.8 (2024-10-21)
+
+### Nethone Profiling Integration fixes
+* Nethone profiling fixes, now require the following to be added to the `settings.gradle.kts`.
+```
+    maven {
+        url = uri("https://nethone.jfrog.io/artifactory/nethonesdk-android-mangopay/")
+    }
+```
+* Improved system logging.
+* `CB` and `AMEX` logo fixes.
+
+## 1.0.6 (2024-06-21)
 
 ### Features & Improvements
 * Added card cvv validations with card type
