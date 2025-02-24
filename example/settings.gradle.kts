@@ -19,10 +19,6 @@ dependencyResolutionManagement {
         maven {
             url = uri("https://nethone.jfrog.io/artifactory/nethonesdk-android-mangopay/")
         }
-
-//        maven {
-//            url = uri("https://oss.sonatype.org/content/repositories/commangopay-1306")
-//        }
     }
 }
 
